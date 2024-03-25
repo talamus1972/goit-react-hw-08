@@ -1,0 +1,21 @@
+.item {
+    display: flex;
+    font-size: large;
+    width: 300px;
+    border: 1px solid #131212;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.text {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    font-size: large;
+    padding: 0 5px;
+    border: 1px solid #131212;
+    margin-left: auto;
+}
