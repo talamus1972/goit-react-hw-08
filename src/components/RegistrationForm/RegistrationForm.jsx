@@ -1,17 +1,17 @@
 import { useId } from "react";
-import css from "./ContactForm.module.css";
+import css from "./RegistrationForm.module.css";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/contactsOps";
+import { register } from "../../redux/auth/operation";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  number: Yup.string()
+  email: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
@@ -19,13 +19,14 @@ const FeedbackSchema = Yup.object().shape({
 
 const initialValues = {
   name: "",
-  number: "",
+  email: "",
+  password: "",
 };
 
-export default function ContactForm() {
+export default function RegistrationForm() {
   const usernameFieldId = useId();
-  const phoneFieldId = useId();
-
+  const emailFieldId = useId();
+  const passwordFieldId = useId();
   const dispatch = useDispatch();
 
   return (
@@ -33,13 +34,14 @@ export default function ContactForm() {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          dispatch(addContact(values));
+          dispatch(register(values));
+
           actions.resetForm();
         }}
         validationSchema={FeedbackSchema}
       >
         <Form className={css.form}>
-          <label htmlFor={usernameFieldId}>Name</label>
+          <label htmlFor={usernameFieldId}>Username</label>
           <Field
             className={css.input}
             type="text"
@@ -48,17 +50,29 @@ export default function ContactForm() {
           />
           <ErrorMessage className={css.error} name="name" component="span" />
 
-          <label htmlFor={phoneFieldId}>Number</label>
+          <label htmlFor={emailFieldId}>Email</label>
           <Field
             className={css.input}
-            type="tel"
-            name="number"
-            id={phoneFieldId}
+            type="text"
+            name="email"
+            id={emailFieldId}
           />
-          <ErrorMessage className={css.error} name="number" component="span" />
+          <ErrorMessage className={css.error} name="email" component="span" />
 
+          <label htmlFor={passwordFieldId}>Password</label>
+          <Field
+            className={css.input}
+            type="text"
+            name="password"
+            id={passwordFieldId}
+          />
+          <ErrorMessage
+            className={css.error}
+            name="password"
+            component="span"
+          />
           <button className={css.btn} type="submit">
-            Add contact
+            Register
           </button>
         </Form>
       </Formik>
