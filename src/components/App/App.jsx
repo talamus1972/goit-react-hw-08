@@ -17,6 +17,7 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage.jsx'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.jsx'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage.jsx'));
+const NotFoundPage = lazy(()=>import("../pages/NotFoundPage/NotFoundPage.jsx"))
 
 export default function App() {
   // const dispatch = useDispatch();
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
 

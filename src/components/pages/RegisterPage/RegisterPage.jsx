@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Loader from "../../Loader/Loader";
 import RegistrationForm from "../../RegistrationForm/RegistrationForm";
-import { selectError, selectLoading } from "../../../redux/contacts/selectors";
+import { selectError, selectLoading } from "../../../redux/auth/selectors";
 import ErrorMessage from "../../ErrorMessage/ErrorMessage";
 
 export default function RegisterPage() {
