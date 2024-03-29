@@ -8,9 +8,9 @@ import { selectIsLoggedIn } from "../../redux/auth/selectors";
 export default function AppBar() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <div className={css.wrapper}>
+    <header className={css.header}>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </div>
+    </header>
   );
 }

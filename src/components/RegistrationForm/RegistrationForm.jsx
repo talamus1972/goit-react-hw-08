@@ -4,7 +4,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/operation";
+import { register } from "../../redux/auth/operations";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -14,6 +14,8 @@ const FeedbackSchema = Yup.object().shape({
   email: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
+    .required("Required"),
+  password: Yup.string()
     .required("Required"),
 });
 
@@ -62,7 +64,7 @@ export default function RegistrationForm() {
           <label htmlFor={passwordFieldId}>Password</label>
           <Field
             className={css.input}
-            type="text"
+            type="password"
             name="password"
             id={passwordFieldId}
           />

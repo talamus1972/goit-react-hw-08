@@ -1,10 +1,10 @@
-// import LoginForm from "../../LoginForm/LoginForm";
+import LoginForm from "../../LoginForm/LoginForm.jsx";
 
 export default function LoginPage() {
   return (
     <div>
-      Log in
-      {/* <LoginForm /> */}
+      <h1>Log in</h1>
+      <LoginForm />
     </div>
   );
 }
