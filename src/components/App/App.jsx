@@ -3,7 +3,7 @@
 // import ContactForm from "../ContactForm/ContactForm";
 // import Loader from "../Loader/Loader";
 // import ErrorMessage from "../ErrorMessage/ErrorMessage";
-// import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
 // import { fetchContacts } from "../../redux/contacts/contactsOps";
 // import toast, { Toaster } from "react-hot-toast";
@@ -13,31 +13,26 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout.jsx";
 import { lazy } from "react";
 
-const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
-const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage.jsx'));
-const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.jsx'));
-const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage.jsx'));
-const NotFoundPage = lazy(()=>import("../pages/NotFoundPage/NotFoundPage.jsx"))
+const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
+const RegisterPage = lazy(() =>
+  import("../pages/RegisterPage/RegisterPage.jsx")
+);
+const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage.jsx"));
+const ContactsPage = lazy(() =>
+  import("../pages/ContactsPage/ContactsPage.jsx")
+);
+const NotFoundPage = lazy(() =>
+  import("../pages/NotFoundPage/NotFoundPage.jsx")
+);
 
 export default function App() {
   // const dispatch = useDispatch();
   // useEffect(() => {
-  //   dispatch(fetchContacts())
-  //     .unwrap()
-  //     .then(() => {
-  //       toast.success("fetchContact fulfilled");
-  //     })
-  //     .catch(() => {
-  //       toast.error("fetchContact rejected");
-  //     });
+  //   dispatch(refresh());
   // }, [dispatch]);
-
-  // const loading = useSelector(selectLoading);
-  // const error = useSelector(selectError);
 
   return (
     <div>
-    
       {/* <h1>Phonebook</h1> */}
       <Routes>
         <Route path="/" element={<Layout />}>
