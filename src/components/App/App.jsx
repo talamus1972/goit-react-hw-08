@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout.jsx";
 import { lazy } from "react";
 import { refreshUser } from "../../redux/auth/operations.js";
+import { selectIsRefreshing } from "../../redux/auth/selectors.js";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
 const RegisterPage = lazy(() =>
@@ -18,14 +19,16 @@ const NotFoundPage = lazy(() =>
 );
 
 export default function App() {
+  const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <div>
-      {/* <h1>Phonebook</h1> */}
+  return isRefreshing ? (
+    <b>Refreshing user, please wait...</b>
+  ) : (
+    <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -35,6 +38,6 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </div>
+    </Suspense>
   );
 }

@@ -55,5 +55,12 @@ export const refreshUser = createAsyncThunk(
     setAuthHeader(savedToken);
     const responce = await axios.get("users/current");
     return responce.data;
+  },
+  {
+    condition: (_, { getState }) => {
+      const reduxState = getState();
+      const savedToken = reduxState.auth.token;
+      return savedToken != null;
+    },
   }
 );
