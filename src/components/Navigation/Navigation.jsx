@@ -9,7 +9,7 @@ const makeLinkClass = ({ isActive }) => {
 };
 
 export default function Navigation() {
-  const isLoggedIn = useSelector(selectIsLoggedIn)
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <nav className={css.nav}>
@@ -17,11 +17,10 @@ export default function Navigation() {
         Home
       </NavLink>
       {isLoggedIn && (
-<NavLink to="/contacts" className={makeLinkClass}>
-        Contacts
-      </NavLink>
+        <NavLink to="/contacts" className={makeLinkClass}>
+          Contacts
+        </NavLink>
       )}
-      
     </nav>
   );
 }

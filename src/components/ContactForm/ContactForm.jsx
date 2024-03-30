@@ -34,17 +34,16 @@ export default function ContactForm() {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          console.log(values);
           dispatch(addContact(values))
-          .unwrap()
-          .then(() => {
-          toast.success('Contact successfully added!');
-          actions.resetForm();
-      })
-      .catch(() => {
-          toast.error('Error adding contact!');
-          actions.resetForm();
-      });  
+            .unwrap()
+            .then(() => {
+              toast.success("Contact successfully added!");
+              actions.resetForm();
+            })
+            .catch(() => {
+              toast.error("Error adding contact!");
+              actions.resetForm();
+            });
           actions.resetForm();
         }}
         validationSchema={FeedbackSchema}
