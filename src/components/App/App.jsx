@@ -1,14 +1,5 @@
-// import ContactList from "../ContactList/ContactList";
-// import SearchBox from "../SearchBox/SearchBox";
-// import ContactForm from "../ContactForm/ContactForm";
-// import Loader from "../Loader/Loader";
-// import ErrorMessage from "../ErrorMessage/ErrorMessage";
 // import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
-// import { fetchContacts } from "../../redux/contacts/contactsOps";
-// import toast, { Toaster } from "react-hot-toast";
-// import { selectError, selectLoading } from "../../redux/contacts/selectors";
-// import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout.jsx";
 import { lazy } from "react";
@@ -43,13 +34,6 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-
-      {/* <ContactForm />
-      {loading && <Loader />}
-      {error && <ErrorMessage />}
-      <SearchBox />
-      <ContactList />
-      <Toaster position="top-center" reverseOrder={false} /> */}
     </div>
   );
 }
