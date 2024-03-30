@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+import toast from "react-hot-toast";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -33,7 +34,17 @@ export default function ContactForm() {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          dispatch(addContact(values));
+          console.log(values);
+          dispatch(addContact(values))
+          .unwrap()
+          .then(() => {
+          toast.success('Contact successfully added!');
+          actions.resetForm();
+      })
+      .catch(() => {
+          toast.error('Error adding contact!');
+          actions.resetForm();
+      });  
           actions.resetForm();
         }}
         validationSchema={FeedbackSchema}

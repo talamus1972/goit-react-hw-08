@@ -10,7 +10,7 @@ export default function Layout() {
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-       <Toaster position="top-right" reverseOrder={false} />
+     <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 }
