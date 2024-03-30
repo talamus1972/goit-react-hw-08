@@ -2,6 +2,7 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { fetchContacts, deleteContact, addContact } from "./operations";
 import { selectNameFilter } from "../filters/selectors";
 import { selectContacts } from "./selectors";
+import { logOut } from "../auth/operations";
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -50,6 +51,11 @@ const contactsSlice = createSlice({
       .addCase(addContact.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
+        state.error = null;
+        state.loading = false;
       }),
 });
 export default contactsSlice.reducer;
@@ -57,9 +63,10 @@ export default contactsSlice.reducer;
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, filterName) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filterName.toLowerCase()) ||
-      contact.number.toLowerCase().includes(filterName.toLowerCase())
+    return contacts.filter(
+      (contact) =>
+        contact.name.toLowerCase().includes(filterName.toLowerCase()) ||
+        contact.number.toLowerCase().includes(filterName.toLowerCase())
     );
   }
 );
