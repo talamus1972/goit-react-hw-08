@@ -24,6 +24,10 @@
     margin: 0 auto;
 }
 
+.btn:hover {
+    background-color: #0056b3;
+}
+
 .username {
     margin-left: auto;
 }
