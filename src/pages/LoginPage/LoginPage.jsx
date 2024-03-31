@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import Loader from "../../Loader/Loader.jsx";
-import LoginForm from "../../LoginForm/LoginForm.jsx";
-import { selectError, selectLoading } from "../../../redux/auth/selectors.js";
-import ErrorMessage from "../../ErrorMessage/ErrorMessage.jsx";
+import Loader from "../../components/Loader/Loader.jsx";
+import LoginForm from "../../components/LoginForm/LoginForm.jsx";
+import { selectError, selectLoading } from "../../redux/auth/selectors.js";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.jsx";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {

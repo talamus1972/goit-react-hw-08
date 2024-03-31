@@ -8,16 +8,16 @@ import { selectIsRefreshing } from "../../redux/auth/selectors.js";
 import RestrictedRoute from "../RestrictedRoute/RestrictedRoute.jsx";
 import PrivateRoute from "../PrivateRoute/PrivateRoute.jsx";
 
-const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const RegisterPage = lazy(() =>
-  import("../pages/RegisterPage/RegisterPage.jsx")
+  import("../../pages/RegisterPage/RegisterPage.jsx")
 );
-const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage.jsx"));
+const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage.jsx"));
 const ContactsPage = lazy(() =>
-  import("../pages/ContactsPage/ContactsPage.jsx")
+  import("../../pages/ContactsPage/ContactsPage.jsx")
 );
 const NotFoundPage = lazy(() =>
-  import("../pages/NotFoundPage/NotFoundPage.jsx")
+  import("../../pages/NotFoundPage/NotFoundPage.jsx")
 );
 
 export default function App() {
