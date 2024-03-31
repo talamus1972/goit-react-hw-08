@@ -16,7 +16,7 @@ export default function SearchBox() {
     <div className={css.wraper}>
       <label htmlFor={id} className={css.text}>
         {" "}
-        Find contacts by name
+        <h3 className={css.title}>Find contacts by name or phone</h3>
       </label>
       <input
         type="text"

@@ -15,8 +15,7 @@ const FeedbackSchema = Yup.object().shape({
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  password: Yup.string()
-    .required("Required"),
+  password: Yup.string().required("Required"),
 });
 
 const initialValues = {
@@ -43,7 +42,10 @@ export default function RegistrationForm() {
         validationSchema={FeedbackSchema}
       >
         <Form className={css.form}>
-          <label htmlFor={usernameFieldId}>Username</label>
+          <h2 className={css.title}>Register your account</h2>
+          <label className={css.label} htmlFor={usernameFieldId}>
+            Username
+          </label>
           <Field
             className={css.input}
             type="text"
@@ -52,7 +54,9 @@ export default function RegistrationForm() {
           />
           <ErrorMessage className={css.error} name="name" component="span" />
 
-          <label htmlFor={emailFieldId}>Email</label>
+          <label className={css.label} htmlFor={emailFieldId}>
+            Email
+          </label>
           <Field
             className={css.input}
             type="text"
@@ -61,7 +65,9 @@ export default function RegistrationForm() {
           />
           <ErrorMessage className={css.error} name="email" component="span" />
 
-          <label htmlFor={passwordFieldId}>Password</label>
+          <label className={css.label} htmlFor={passwordFieldId}>
+            Password
+          </label>
           <Field
             className={css.input}
             type="password"

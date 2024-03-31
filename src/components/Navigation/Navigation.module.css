@@ -1,8 +1,7 @@
 .nav {
     display: flex;
     gap: 12px;
-    margin-bottom: 20px;
-
+    align-items: center;
 }
 
 .link {
@@ -11,5 +10,17 @@
 }
 
 .isActive {
-    color: red;
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+}
+
+.isActive:hover {
+    background-color: #0056b3;
 }

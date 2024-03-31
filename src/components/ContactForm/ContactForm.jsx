@@ -49,7 +49,10 @@ export default function ContactForm() {
         validationSchema={FeedbackSchema}
       >
         <Form className={css.form}>
-          <label htmlFor={usernameFieldId}>Name</label>
+          <h2 className={css.title}> Your contacts</h2>
+          <label className={css.label} htmlFor={usernameFieldId}>
+            Name
+          </label>
           <Field
             className={css.input}
             type="text"
@@ -58,7 +61,9 @@ export default function ContactForm() {
           />
           <ErrorMessage className={css.error} name="name" component="span" />
 
-          <label htmlFor={phoneFieldId}>Number</label>
+          <label className={css.label} htmlFor={phoneFieldId}>
+            Number
+          </label>
           <Field
             className={css.input}
             type="tel"

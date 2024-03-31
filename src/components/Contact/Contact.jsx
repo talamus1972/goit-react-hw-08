@@ -15,10 +15,10 @@ export default function Contact({ data: { id, name, number } }) {
     dispatch(deleteContact(id))
       .unwrap()
       .then(() => {
-        toast.success('Contact deleted successfully!!!');
+        toast.success("Contact deleted successfully!!!");
       })
       .catch(() => {
-        toast.error('Error deleting contact!');
+        toast.error("Error deleting contact!");
       });
     setIsModalOpen(false);
   };
@@ -27,13 +27,13 @@ export default function Contact({ data: { id, name, number } }) {
     <>
       <div>
         <div className={css.text}>
-          <span>
+          <span className={css.icon}>
             <IoPersonSharp />
           </span>
           <p>{name}</p>
         </div>
         <div className={css.text}>
-          <span>
+          <span className={css.icon}>
             <FaPhone />
           </span>
           <p>{number}</p>
@@ -49,7 +49,6 @@ export default function Contact({ data: { id, name, number } }) {
         onClose={() => setIsModalOpen(false)}
         onConfirm={handleDelete}
       />
-
     </>
   );
 }
