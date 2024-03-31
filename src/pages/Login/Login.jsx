@@ -15,9 +15,6 @@ export default function Login() {
       <LoginForm />
       {isLoading && <Loader />}
       {error && <ErrorMessage />}
-      <p>
-        or <Link to="/register">register</Link>
-      </p>
     </div>
   );
 }
