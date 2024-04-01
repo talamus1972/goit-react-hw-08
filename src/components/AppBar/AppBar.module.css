@@ -9,7 +9,6 @@
 }
 
 .title {
-    margin: 0 auto;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
